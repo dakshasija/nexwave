@@ -22,7 +22,7 @@ import com.pm.model.ProductType;
 import com.pm.repository.HibProductRepositoryImpl;
 import com.pm.repository.ProductRepository;
 
-@WebServlet(urlPatterns = { "/pm", "/save-product", "/delete-product" })
+@WebServlet(urlPatterns = { "/pm", "/save-product", "/delete-product, "/edit-product" })
 public class ProductController extends HttpServlet {
 
 	private ProductRepository productRepo;
@@ -62,6 +62,13 @@ public class ProductController extends HttpServlet {
 		if (path.equals("/delete-product")) {
 			productRepo.delete(Integer.parseInt(req.getParameter("id")));
 			resp.sendRedirect("pm");
+		}
+		
+		
+		if(path.equals("/edit-product")){
+		
+		resp.sendRedirect("edit");
+		
 		}
 
 		if (path.equals("/save-product")) {
